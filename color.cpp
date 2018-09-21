@@ -37,12 +37,12 @@ Color::Color( ColorName name ) {
       case OLIVE:   r = 0x80; g = 0x80; b = 0x00; a = 0xFF; break;
       case LIME:    r = 0x00; g = 0xFF; b = 0x00; a = 0xFF; break;
       case GREEN:   r = 0x00; g = 0x80; b = 0x00; a = 0xFF; break;
-      case AQUA:
+      case AQUA:    r = 0x7E; g = 0xBA; b = 0xB5; a = 0xFF; break;
       case CYAN:    r = 0x00; g = 0xFF; b = 0xFF; a = 0xFF; break;
       case TEAL:    r = 0x00; g = 0x80; b = 0x80; a = 0xFF; break;
       case BLUE:    r = 0x00; g = 0x00; b = 0xFF; a = 0xFF; break;
       case NAVY:    r = 0x00; g = 0x00; b = 0x80; a = 0xFF; break;
-      case FUCHSIA:
+      case FUCHSIA: r = 0x9B; g = 0x50; b = 0x4F; a = 0xFF; break;
       case MAGENTA: r = 0xFF; g = 0x00; b = 0xFF; a = 0xFF; break;
       case PURPLE:  r = 0x80; g = 0x00; b = 0x80; a = 0xFF; break;
    }
@@ -59,4 +59,3 @@ bool Color::operator==( Color other ) {
 bool Color::operator!=( Color other ) {
    return !operator==(other);
 }
-

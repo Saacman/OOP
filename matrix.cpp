@@ -30,6 +30,13 @@ Matrix::Matrix( int r, int c ) : Matrix() {
    m_data = new double[r*c];
    for ( int i=0; i<r*c; i++ ) m_data[i] = 0.0;
 }
+// Constructor copia
+Matrix::Matrix( const Matrix& original ) : Matrix() {
+    m_rows = original.m_rows;
+    m_cols = original.m_cols;
+    m_data = new double[m_rows * m_cols];
+    for ( int i = 0; i < (m_rows * m_cols); i++ ) m_data[i] = original.m_data[i];
+}
 
 // destructor
 // solo libera la memoria si m_data no es nulo
@@ -49,9 +56,9 @@ int Matrix::cols() {
    return m_cols;
 }
 
-double Matrix::get( int r, int c ) {
-   return m_data[m_cols*r+c];
-}
+// double Matrix::get( int r, int c ) {
+//    return m_data[m_cols*r+c];
+// }
 
 void Matrix::print() {
    for ( int r=0; r<m_rows; r++ ) {
@@ -62,7 +69,33 @@ void Matrix::print() {
    }
 }
 
-void Matrix::set( int r, int c, double value ) {
-   m_data[m_cols*r+c] = value;
+// void Matrix::set( int r, int c, double value ) {
+//    m_data[m_cols*r+c] = value;
+// }
+
+double& at( int row, int col ) {
+    return m_data[m_cols * row + col];
+}
+double& at( int row, int col ) const {
+    return m_data[m_cols * row + col];
 }
 
+Matrix dot( const Matrix& other ) {
+    Matrix P( m_rows, other.m_cols);
+  //int n;
+  if ( m_cols == other.m_rows ) {
+    for(int i=0; i < P.m_rows; i++){
+      for(int j=0; j < P.m_cols; j++){
+        //n=0;
+        for(int k=0; k < m_cols; k++){
+          //P.add(i, j, get(i,k) * other.get(k, j));
+          //n += get(i,k) * other.get(k, j);
+          //P.at(i, j) += get(i,k) * other.get(k, j);
+          P.at(i, j) += at(i,k) * other.at(k, j);
+        }
+        //P.set(i,j,n);
+      }
+    }
+  }
+  return P;
+}
