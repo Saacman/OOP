@@ -14,6 +14,10 @@ class Matrix {
       // crea una matriz de rows x cols
       // reserva la memoria necesaria
       Matrix( int rows, int cols );
+      
+      // Constructor copia
+      // Recibe otro objeto matrix y copia adecuadamente los atributos en un nuevo objeto
+      Matrix( const Matrix& original );
 
       // destructor
       // libera la memoria reservada, si la hubiera
@@ -22,11 +26,19 @@ class Matrix {
       // Métodos de acceso
       int rows(); // número de renglones
       int cols(); // número de columnas
-      double get( int r, int c ); // regresa el valor r,c
-      void print(); // impime la matriz
+   
+      // get y set son reemplazados por at()
+      //double get( int r, int c ); // regresa el valor r,c
+      void print(); // imprime la matriz
+   
+      double& at( int row, int col ); // at() utiliza sobrecarga de funciones
+      double& at( int row, int col ) const;
 
       // Métodos de mutación
-      void set( int r, int c, double value ); // cambia el valor r,c a value
+      //void set( int r, int c, double value ); // cambia el valor r,c a value
+   
+      // Metodo para multiplicacion de matrices
+      Matrix dot( const Matrix& other );
 
    // elementos privados de la clase
    // no son accesibles desde fuera de la clase
