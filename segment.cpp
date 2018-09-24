@@ -1,5 +1,5 @@
 #include "segment.hpp"
-
+Segment::Segment() : m_slope(0.0), m_bias(0.0) { }
 Segment::Segment(Point pt1, Point pt2) : m_pt1(pt1), m_pt2(pt2) {
     // Ajuste para rectas verticales
     double epsilon = 0.000001;

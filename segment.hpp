@@ -4,7 +4,7 @@
 #include "point.hpp"
 class Segment {
 public:
-    //Segment();
+    Segment();
     Segment(Point pt1, Point pt2);
     //determina el punto de cruce de las rectas
     Point solve(Segment other);
