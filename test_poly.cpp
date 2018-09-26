@@ -22,19 +22,28 @@ int main() {
    edges_oct.push_back( Point(286,190) );
    edges_oct.push_back( Point(200,142) );
 
-   Poly octagono( edges_oct, Color(AQUA) );
+   Poly shape( edges_oct, Color(AQUA) );
 
    // Dibuja objetos tipo Box en la imagen
    Color temp;
    for ( int y=0; y<im.height(); y++ ) {
       for ( int x=0; x<im.width(); x++ ) {
 
-        // temp = edges_oct.ptcolor(Point(x,y));
-        // if ( temp != Color(CLEAR) ) break;
+         temp = shape.ptcolor(Point(x,y));
+         if ( temp == Color(CLEAR) ) im(x,y) = im.bgcolor();
+         else im(x,y) = temp;
 
-         // determina el color del pixel (x,y)
-         if ( temp != Color(CLEAR) ) im(x,y) = temp;
-         else im(x,y) = im.bgcolor();
+         // prueba todos los objetos
+         // for ( int k=0; k<3; k++ ) {
+         //    cout << "DEBUG 1" << endl;
+         //    temp = vpoly[k].ptcolor(Point(x,y));
+         //    cout << "DEBUG 2" << endl;
+         //    if ( temp != Color(CLEAR) ) break;
+         // }
+
+         // // determina el color del pixel (x,y)
+         // if ( temp != Color(CLEAR) ) im(x,y) = temp;
+         // else im(x,y) = im.bgcolor();
 
       }
    }
