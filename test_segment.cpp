@@ -22,6 +22,13 @@ int main() {
         if ( s1.intersection(s2) ) cout << "prueba 2: OK" <<endl;
         else cout << "prueba 2: ERROR" << endl;
     }
+    // Prueba 3
+    {
+        Segment s1(Point(1.0,1.0),Point(1.0,2.0));
+        Segment s2(Point(1.5,1.2),Point(3.0,1.0));
+        if ( !s1.intersection(s2) ) cout << "prueba 3: OK" << endl;
+        else cout << "prueba 3: ERROR" << endl;
+    }
 
-
+    return 0;
 }
