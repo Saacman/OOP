@@ -30,8 +30,9 @@ int main() {
       for ( int x=0; x<im.width(); x++ ) {
 
          temp = shape.ptcolor(Point(x,y));
-         if ( temp == Color(CLEAR) ) im(x,y) = im.bgcolor();
-         else im(x,y) = temp;
+         // if ( temp == Color(CLEAR) ) im(x,y) = im.bgcolor();
+         // else im(x,y) = temp;
+         if ( temp != Color(CLEAR) ) im(x,y) = temp;
 
          // prueba todos los objetos
          // for ( int k=0; k<3; k++ ) {
@@ -48,5 +49,5 @@ int main() {
       }
    }
 
-   im.save("poly.png");
+   im.save("poly2.png");
 }
