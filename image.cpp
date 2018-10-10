@@ -3,11 +3,11 @@
 // Se eliminó el constructor por defecto, porque no queremos imágenes con 0
 // elementos. Esto forza al cliente/usuario a utilizar alguno de los otros dos
 // constructores.
-//Image::Image() : m_width(0), m_height(0) { }
+Image::Image() : m_width(0), m_height(0) { }
 
 // Constructor. Crea una imagen nueva con el ancho y el alto especificados, y
 // opcionalmente, un color de fondo.
-//
+
 // width  = ancho de la imagen
 // height = alto de la imagen
 // bg     = color de fondo
@@ -126,4 +126,3 @@ void Image::save( const char* filename ) {
 
    if ( error ) throw "Cannot save the file";
 }
-

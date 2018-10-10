@@ -7,7 +7,7 @@
 
 class Image {
    public:
-      //Image();
+      Image();
       Image( int width, int height, Color bg=Color(CLEAR) );
       Image( const char* filename );
 
@@ -36,4 +36,3 @@ class Image {
 };
 
 #endif
-

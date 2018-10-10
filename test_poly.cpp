@@ -10,7 +10,7 @@ using namespace std;
 
 int main() {
 
-   Image im(800,600,Color(WHITE));
+   Image im(800,600,Color(CLEAR));
    // Vector de los vertices del
    vector<Point> edges_oct;
    edges_oct.push_back( Point(106,169) );

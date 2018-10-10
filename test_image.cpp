@@ -13,7 +13,7 @@ int main() {
     original.save("copia.png");
 
     // Prueba de background() y clear()
-    original.background(LIME);
+    original.bgcolor(LIME);
     original.clear();
 
     original.save("lime-bgnd.png");
