@@ -1,5 +1,6 @@
 #include "poly.hpp"
-
+Poly::Poly() {}
+Poly::~Poly() {}
 Poly::Poly( std::vector<Point> edges , Color fill) {
     m_bbox = BBox(edges);
     m_edges = edges;

@@ -10,16 +10,17 @@
 
 class Poly : public Shape {
 public:
+    Poly();
+    ~Poly();
     Poly( std::vector<Point> edges , Color fill=Color(BLACK) );
 
     // accessors
-    Color fill() const;
     Point edge( int index) const;
     int sides() const;
 
     bool test( Point pt );
 
-private:
+protected:
     std::vector<Point> m_edges;
 };
 
