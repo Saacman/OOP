@@ -5,20 +5,21 @@
 #include "point.hpp"
 #include "segment.hpp"
 #include "color.hpp"
+#include "bbox.hpp"
+#include "shape.hpp"
 
-class Poly {
+class Poly : public Shape {
 public:
     Poly( std::vector<Point> edges , Color fill=Color(BLACK) );
 
     // accessors
     Color fill() const;
     Point edge( int index) const;
+    int sides(const)
 
     bool test( Point pt );
-    Color ptcolor( Point pt );
 
 private:
-    Color m_fill;
     std::vector<Point> m_edges;
 };
 

@@ -1,21 +1,25 @@
 #include "poly.hpp"
 
-Poly::Poly( std::vector<Point> edges , Color fill) : m_fill(fill) {
-    m_edges = edges; // No se puede inicializar el vector en la lista de inicialización
-}
-
-Color Poly::fill() const {
-    return m_fill;
+Poly::Poly( std::vector<Point> edges , Color fill) :{
+    m_bbox = BBox(edges);
+    m_edges = edges;
+    set_fill( fill );
 }
 
 Point Poly::edge( int index) const {
     return m_edges[index];
 }
+
+int Poly::sides() const {
+    return m_edges.size();
+}
+
 // Test verifica si un punto esta dentro del poligono.
 bool Poly::test( Point pt ) {
     // La clase puede utilizar todos los puntos del plano, pero en las imagenes solo se dibuja en el cuadrante positivo
     // El punto de referencia t no interfiere en el plano de cualquier imagen
-    Segment t(Point(-1.0, -1.0), pt);
+    if ( !m_bbox.test(pt) ) return false;
+    Segment t( Point( m_bbox.topleft().x-1.0, m_bbox.topleft().y-1.0 ), pt ));
     Segment s;
 
     int count = 0;
@@ -26,14 +30,7 @@ bool Poly::test( Point pt ) {
     }
     s = Segment(m_edges[n-1], m_edges[0]);
     if ( t.intersection(s) ) count++;
-    // Si cruza un numero impar de segmentos el punto esta dentro del poligono.
-    // Utiliza un verificador de paridad.
-    // if ( count % 2 != 0 s)
+
     if( count & 1) return true;
     return false;
-}
-
-Color Poly::ptcolor( Point pt ) {
-    if ( test(pt) ) return m_fill;
-    return Color(CLEAR);
 }

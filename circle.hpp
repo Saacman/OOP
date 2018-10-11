@@ -5,7 +5,7 @@
 #include "point.hpp"
 #include "shape.hpp"
 
-class Circle {
+class Circle : public Shape{
    public:
       Circle();
       Circle( Point center, double radius, Color fill=Color(BLACK) );
