@@ -16,7 +16,7 @@ class Circle : public Shape{
       //Color fill() const;
 
       // interfaz común con otras figuras
-      bool test( Point pt );  override
+      bool test( Point pt );
       // Color ptcolor( Point pt );
 
    private:

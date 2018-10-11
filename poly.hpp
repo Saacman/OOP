@@ -15,7 +15,7 @@ public:
     // accessors
     Color fill() const;
     Point edge( int index) const;
-    int sides(const)
+    int sides() const;
 
     bool test( Point pt );
 

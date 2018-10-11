@@ -8,14 +8,14 @@
 
 class Box : public Shape {
 public:
-    Box( Point t_left, Point b_right, Color fill=Color(BLACK));
+   Box( Point topleft, Point bottomright, Color fill=Color(BLACK) );
 
-    // accessors
-    Point top_l() const;
-    Point bottom_r() const;
+   // accessors
+   Point topleft() const;
+   Point bottomright() const;
 
-    //Color fill() const;
+   bool test( Point pt );
 
-    bool test( Point pt );
+   //Color ptcolor( Point pt );
 };
 #endif

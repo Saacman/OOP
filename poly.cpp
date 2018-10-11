@@ -1,6 +1,6 @@
 #include "poly.hpp"
 
-Poly::Poly( std::vector<Point> edges , Color fill) :{
+Poly::Poly( std::vector<Point> edges , Color fill) {
     m_bbox = BBox(edges);
     m_edges = edges;
     set_fill( fill );
@@ -19,7 +19,7 @@ bool Poly::test( Point pt ) {
     // La clase puede utilizar todos los puntos del plano, pero en las imagenes solo se dibuja en el cuadrante positivo
     // El punto de referencia t no interfiere en el plano de cualquier imagen
     if ( !m_bbox.test(pt) ) return false;
-    Segment t( Point( m_bbox.topleft().x-1.0, m_bbox.topleft().y-1.0 ), pt ));
+    Segment t( Point( m_bbox.topleft().x-1.0, m_bbox.topleft().y-1.0 ), pt );
     Segment s;
 
     int count = 0;
